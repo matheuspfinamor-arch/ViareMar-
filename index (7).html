@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViareMar Viagens & Turismo | O mundo é seu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --azul-profundo: #0a2540;
+            --azul-medio: #1a5fa8;
+            --azul-ceu: #3b9edd;
+            --azul-claro: #e8f4fd;
+            --branco-cinza: #f7f9fc;
+            --transicao: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--branco-cinza);
+            color: var(--azul-profundo);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .logo-text {
+            font-family: 'Playfair Display', serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transicao);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transicao);
+            border: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--azul-ceu);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--azul-medio);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--azul-medio);
+        }
+
+        /* 1. Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--azul-medio);
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--azul-profundo);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a:hover {
+            color: var(--azul-ceu);
+        }
+
+        .header-cta {
+            background-color: var(--azul-medio);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .mobile-menu-icon {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        /* 2. Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background: linear-gradient(135deg, var(--azul-profundo) 0%, var(--azul-medio) 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .search-bar {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr) auto;
+            gap: 15px;
+            max-width: 1000px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            color: var(--azul-profundo);
+        }
+
+        .search-field {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .search-field label {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #666;
+        }
+
+        .search-field input, .search-field select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .btn-search {
+            background-color: var(--azul-medio);
+            color: white;
+            border: none;
+            padding: 0 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* 3. Painel Interativo */
+        .destinos-alta {
+            padding: 100px 0;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663488121257/FFomPmfinsnmjzJv.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 10px 25px;
+            background: white;
+            border: 1px solid var(--azul-claro);
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transicao);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .tab-btn.active {
+            background: var(--azul-medio);
+            color: white;
+            border-color: var(--azul-medio);
+        }
+
+        .destinos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            min-height: 400px;
+        }
+
+        .destino-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transicao);
+            animation: fadeIn 0.5s ease forwards;
+            backdrop-filter: blur(5px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .destino-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .destino-emoji {
+            font-size: 50px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .destino-nome {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        .destino-pais {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--azul-claro);
+            color: var(--azul-medio);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .pop-bar-container {
+            width: 100%;
+            height: 8px;
+            background: #eee;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .pop-bar {
+            height: 100%;
+            background: linear-gradient(to right, var(--azul-ceu), var(--azul-medio));
+            border-radius: 10px;
+        }
+
+        .btn-card {
+            color: var(--azul-medio);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .btn-card:hover {
+            color: var(--azul-ceu);
+        }
+
+        /* 4. Pacotes em Destaque */
+        .pacotes-destaque {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .pacotes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .pacote-card {
+            border: 1px solid #eee;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: var(--transicao);
+        }
+
+        .pacote-card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .pacote-content {
+            padding: 25px;
+        }
+
+        .pacote-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 5px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .badge-venda { background: #fff3cd; color: #856404; }
+        .badge-lua { background: #f8d7da; color: #721c24; }
+        .badge-familia { background: #d4edda; color: #155724; }
+
+        .pacote-titulo {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .pacote-desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .pacote-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .pacote-preco {
+            font-weight: 700;
+            color: var(--azul-profundo);
+        }
+
+        .pacote-preco span {
+            display: block;
+            font-size: 12px;
+            font-weight: 400;
+            color: #888;
+        }
+
+        /* 5. Categorias */
+        .categorias {
+            padding: 80px 0;
+        }
+
+        .categorias-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .cat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            transition: var(--transicao);
+        }
+
+        .cat-card:hover {
+            background: var(--azul-claro);
+        }
+
+        .cat-icon {
+            width: 50px;
+            height: 50px;
+            flex-shrink: 0;
+        }
+
+        .cat-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--azul-medio);
+        }
+
+        .cat-info h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .cat-info p {
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* 6. Diferenciais */
+        .diferenciais {
+            padding: 80px 0;
+            background: var(--azul-profundo);
+            color: white;
+        }
+
+        .dif-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .dif-item i {
+            font-size: 40px;
+            margin-bottom: 20px;
+            display: block;
+            color: var(--azul-ceu);
+        }
+
+        .dif-num {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .dif-text {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* 7. Depoimentos */
+        .depoimentos {
+            padding: 80px 0;
+        }
+
+        .dep-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .dep-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .dep-stars {
+            color: #ffc107;
+            margin-bottom: 15px;
+        }
+
+        .dep-texto {
+            font-style: italic;
+            margin-bottom: 25px;
+            font-size: 15px;
+        }
+
+        .dep-autor {
+            font-weight: 700;
+        }
+
+        .dep-tipo {
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* 8. Newsletter */
+        .newsletter {
+            padding: 60px 0;
+            background: var(--azul-profundo);
+            color: white;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            margin-bottom: 30px;
+        }
+
+        .news-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 10px;
+        }
+
+        .news-form input {
+            flex: 1;
+            padding: 15px 20px;
+            border-radius: 50px;
+            border: none;
+            outline: none;
+        }
+
+        .news-form .btn {
+            padding: 0 30px;
+        }
+
+        /* 9. Contato */
+        .contato {
+            padding: 80px 0;
+        }
+
+        .contato-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group.full {
+            grid-column: span 2;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+        }
+
+        /* 10. Footer */
+        footer {
+            background: #051526;
+            color: white;
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo .logo-text {
+            color: white;
+        }
+
+        .footer-logo p {
+            margin-top: 15px;
+            opacity: 0.6;
+            font-size: 14px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 25px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            opacity: 0.6;
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            opacity: 1;
+            color: var(--azul-ceu);
+        }
+
+        .footer-info {
+            font-size: 14px;
+            opacity: 0.6;
+        }
+
+        .footer-info p {
+            margin-bottom: 10px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+            opacity: 0.6;
+            transition: var(--transicao);
+        }
+
+        .social-links a:hover svg {
+            opacity: 1;
+            fill: var(--azul-ceu);
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .selos {
+            display: flex;
+            gap: 15px;
+        }
+
+        .selo-badge {
+            padding: 4px 10px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .copyright {
+            font-size: 12px;
+            opacity: 0.5;
+        }
+
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .destinos-grid, .pacotes-grid, .categorias-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .dif-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .header-cta {
+                display: none;
+            }
+            .mobile-menu-icon {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .search-bar {
+                grid-template-columns: 1fr;
+            }
+            .destinos-grid, .pacotes-grid, .categorias-grid, .dep-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .form-group.full {
+                grid-column: span 1;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <svg viewBox="0 0 24 24"><path d="M12,2L4.5,20.29L5.21,21L12,18L18.79,21L19.5,20.29L12,2Z"/></svg>
+                    <span class="logo-text">ViareMar</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#destinos">Destinos</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+                <a href="#contato" class="header-cta">Planejar Viagem</a>
+                <div class="mobile-menu-icon">☰</div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 2. Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1>Descubra o mundo com quem entende de viagem</h1>
+            <p>Pacotes personalizados, atendimento humano e os melhores destinos do planeta</p>
+            <div class="hero-btns">
+                <a href="#destinos" class="btn btn-primary">Ver Pacotes</a>
+                <a href="#contato" class="btn btn-outline">Falar com Consultor</a>
+            </div>
+            
+            <div class="search-bar">
+                <div class="search-field">
+                    <label>DESTINO</label>
+                    <input type="text" placeholder="Para onde você quer ir?">
+                </div>
+                <div class="search-field">
+                    <label>PERÍODO</label>
+                    <select>
+                        <option>Qualquer mês</option>
+                        <option>Janeiro</option>
+                        <option>Fevereiro</option>
+                        <option>Março</option>
+                        <option>Abril</option>
+                        <option>Maio</option>
+                        <option>Junho</option>
+                        <option>Julho</option>
+                        <option>Agosto</option>
+                        <option>Setembro</option>
+                        <option>Outubro</option>
+                        <option>Novembro</option>
+                        <option>Dezembro</option>
+                    </select>
+                </div>
+                <div class="search-field">
+                    <label>TIPO</label>
+                    <select>
+                        <option>Família</option>
+                        <option>Casal</option>
+                        <option>Solo</option>
+                        <option>Corporativo</option>
+                    </select>
+                </div>
+                <button class="btn-search">Buscar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Painel Interativo - Destinos em Alta -->
+    <section class="destinos-alta" id="destinos">
+        <div class="container">
+            <div class="section-header">
+                <h2>Destinos em alta agora</h2>
+                <p id="dynamic-subtitle">Os mais buscados em Abril</p>
+            </div>
+
+            <div class="tabs">
+                <button class="tab-btn" onclick="filterDestinos('verao', this)">Verão (Dez-Mar)</button>
+                <button class="tab-btn" onclick="filterDestinos('outono', this)">Outono (Abr-Mai)</button>
+                <button class="tab-btn" onclick="filterDestinos('inverno', this)">Inverno (Jun-Ago)</button>
+                <button class="tab-btn" onclick="filterDestinos('primavera', this)">Primavera (Set-Nov)</button>
+            </div>
+
+            <div class="destinos-grid" id="destinos-container">
+                <!-- Preenchido via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Pacotes em Destaque -->
+    <section class="pacotes-destaque">
+        <div class="container">
+            <div class="section-header">
+                <h2>Pacotes em Destaque</h2>
+            </div>
+            <div class="pacotes-grid">
+                <div class="pacote-card">
+                    <div class="pacote-content">
+                        <span class="pacote-badge badge-venda">Mais Vendido</span>
+                        <h3 class="pacote-titulo">🏝️ Maldivas Premium</h3>
+                        <p class="pacote-desc">Bangalôs sobre as águas com sistema all-inclusive e experiências exclusivas de mergulho.</p>
+                        <p><strong>Duração:</strong> 7 dias / 6 noites</p>
+                        <div class="pacote-info">
+                            <div class="pacote-preco">
+                                <span>a partir de</span>
+                                R$ 12.490
+                            </div>
+                            <a href="#" class="btn-card">Saiba Mais →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="pacote-card">
+                    <div class="pacote-content">
+                        <span class="pacote-badge badge-lua">Lua de Mel</span>
+                        <h3 class="pacote-titulo">🗼 Paris Romântica</h3>
+                        <p class="pacote-desc">Hospedagem com vista para a Torre Eiffel e jantar privativo no Rio Sena.</p>
+                        <p><strong>Duração:</strong> 6 dias / 5 noites</p>
+                        <div class="pacote-info">
+                            <div class="pacote-preco">
+                                <span>a partir de</span>
+                                R$ 8.900
+                            </div>
+                            <a href="#" class="btn-card">Saiba Mais →</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="pacote-card">
+                    <div class="pacote-content">
+                        <span class="pacote-badge badge-familia">Família</span>
+                        <h3 class="pacote-titulo">🏰 Orlando Mágico</h3>
+                        <p class="pacote-desc">Ingressos para todos os parques e hospedagem em resort dentro do complexo Disney.</p>
+                        <p><strong>Duração:</strong> 10 dias / 9 noites</p>
+                        <div class="pacote-info">
+                            <div class="pacote-preco">
+                                <span>a partir de</span>
+                                R$ 7.200
+                            </div>
+                            <a href="#" class="btn-card">Saiba Mais →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Categorias de Viagem -->
+    <section class="categorias" id="servicos">
+        <div class="container">
+            <div class="section-header">
+                <h2>Explore por Categoria</h2>
+            </div>
+            <div class="categorias-grid">
+                <div class="cat-card">
+                    <div class="cat-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12,2L4.5,20.29L5.21,21L12,18L18.79,21L19.5,20.29L12,2Z"/></svg>
+                    </div>
+                    <div class="cat-info">
+                        <h3>Pacotes Nacionais</h3>
+                        <p>O melhor do Brasil, do Oiapoque ao Chuí com conforto.</p>
+                    </div>
+                </div>
+                <div class="cat-card">
+                    <div class="cat-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M11,7H13V13H11V7M11,15H13V17H11V15Z"/></svg>
+                    </div>
+                    <div class="cat-info">
+                        <h3>Europa</h3>
+                        <p>Roteiros culturais e históricos pelas capitais europeias.</p>
+                    </div>
+                </div>
+                <div class="cat-card">
+                    <div class="cat-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/></svg>
+                    </div>
+                    <div class="cat-info">
+                        <h3>América do Norte</h3>
+                        <p>Compras, parques temáticos e metrópoles vibrantes.</p>
+                    </div>
+                </div>
+                <div class="cat-card">
+                    <div class="cat-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20,8H4V6H20V8M20,10H4V12H20V10M20,14H4V16H20V14M20,18H4V20H20V18Z"/></svg>
+                    </div>
+                    <div class="cat-info">
+                        <h3>Cruzeiros</h3>
+                        <p>Luxo e diversão em alto mar pelos oceanos do mundo.</p>
+                    </div>
+                </div>
+                <div class="cat-card">
+                    <div class="cat-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/></svg>
+                    </div>
+                    <div class="cat-info">
+                        <h3>Lua de Mel</h3>
+                        <p>Destinos românticos planejados para momentos inesquecíveis.</p>
+                    </div>
+                </div>
+                <div class="cat-card">
+                    <div class="cat-icon">
+                        <svg viewBox="0 0 24 24"><path d="M14,6V4H10V6H5V19H19V6H14M12,12A2,2 0 0,1 10,10A2,2 0 0,1 12,8A2,2 0 0,1 14,10A2,2 0 0,1 12,12M12,17A3,3 0 0,1 9,14H15A3,3 0 0,1 12,17Z"/></svg>
+                    </div>
+                    <div class="cat-info">
+                        <h3>Viagens Corporativas</h3>
+                        <p>Logística eficiente para empresas e eventos de negócios.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Por que escolher a ViareMar? -->
+    <section class="diferenciais" id="sobre">
+        <div class="container">
+            <div class="dif-grid">
+                <div class="dif-item">
+                    <span class="dif-num">+15</span>
+                    <span class="dif-text">anos de experiência</span>
+                </div>
+                <div class="dif-item">
+                    <span class="dif-num">+8.000</span>
+                    <span class="dif-text">viajantes atendidos</span>
+                </div>
+                <div class="dif-item">
+                    <span class="dif-num">IATA</span>
+                    <span class="dif-text">Parceiro oficial</span>
+                </div>
+                <div class="dif-item">
+                    <span class="dif-num">24/7</span>
+                    <span class="dif-text">Atendimento 7 dias por semana</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Depoimentos -->
+    <section class="depoimentos">
+        <div class="container">
+            <div class="section-header">
+                <h2>O que dizem nossos viajantes</h2>
+            </div>
+            <div class="dep-grid">
+                <div class="dep-card">
+                    <div class="dep-stars">★★★★★</div>
+                    <p class="dep-texto">"A viagem para as Maldivas foi impecável. Cada detalhe foi pensado pela equipe da ViareMar. Recomendo muito!"</p>
+                    <p class="dep-autor">Ricardo Almeida</p>
+                    <p class="dep-tipo">Viagem de Casal</p>
+                </div>
+                <div class="dep-card">
+                    <div class="dep-stars">★★★★★</div>
+                    <p class="dep-texto">"Levei toda a família para a Disney e não tivemos nenhuma preocupação. O suporte 24h fez toda a diferença."</p>
+                    <p class="dep-autor">Mariana Costa</p>
+                    <p class="dep-tipo">Viagem em Família</p>
+                </div>
+                <div class="dep-card">
+                    <div class="dep-stars">★★★★★</div>
+                    <p class="dep-texto">"Minha lua de mel em Paris foi um sonho. O hotel indicado tinha a melhor vista da cidade. Inesquecível!"</p>
+                    <p class="dep-autor">Juliana & Pedro</p>
+                    <p class="dep-tipo">Lua de Mel</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Receba ofertas exclusivas</h2>
+            <form class="news-form">
+                <input type="email" placeholder="Seu melhor e-mail" required>
+                <button type="submit" class="btn btn-primary">Quero receber</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 9. Formulário de Contato -->
+    <section class="contato" id="contato">
+        <div class="container">
+            <div class="contato-container">
+                <div class="section-header">
+                    <h2>Solicite seu orçamento</h2>
+                    <p>Personalizamos cada detalhe para sua próxima aventura</p>
+                </div>
+                <form id="contactForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Nome completo *</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>E-mail *</label>
+                            <input type="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>WhatsApp *</label>
+                            <input type="tel" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Destino de interesse</label>
+                            <input type="text">
+                        </div>
+                        <div class="form-group">
+                            <label>Período pretendido (mês/ano)</label>
+                            <input type="text" placeholder="Ex: Julho/2025">
+                        </div>
+                        <div class="form-group">
+                            <label>Tipo de viagem</label>
+                            <select>
+                                <option>Selecione...</option>
+                                <option>Família</option>
+                                <option>Casal</option>
+                                <option>Solo</option>
+                                <option>Corporativo</option>
+                            </select>
+                        </div>
+                        <div class="form-group full">
+                            <label>Orçamento aproximado</label>
+                            <select>
+                                <option>Selecione...</option>
+                                <option>Até R$ 3k</option>
+                                <option>R$ 3k - 8k</option>
+                                <option>R$ 8k - 15k</option>
+                                <option>Acima de R$ 15k</option>
+                            </select>
+                        </div>
+                        <div class="form-group full">
+                            <label>Mensagem livre</label>
+                            <textarea placeholder="Conte-nos mais sobre seus desejos para esta viagem..."></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit">Enviar solicitação</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <a href="#" class="logo">
+                        <svg viewBox="0 0 24 24" fill="white"><path d="M12,2L4.5,20.29L5.21,21L12,18L18.79,21L19.5,20.29L12,2Z"/></svg>
+                        <span class="logo-text">ViareMar</span>
+                    </a>
+                    <p>"O mundo é seu. A gente só facilita o caminho."</p>
+                    <div class="social-links">
+                        <a href="#"><svg viewBox="0 0 24 24"><path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2C22,19.4 19.4,22 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8C2,4.6 4.6,2 7.8,2M12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17A5,5 0 0,0 17,12A5,5 0 0,0 12,7M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M18,6A1,1 0 0,0 17,7A1,1 0 0,0 18,8A1,1 0 0,0 19,7A1,1 0 0,0 18,6Z"/></svg></a>
+                        <a href="#"><svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg></a>
+                        <a href="#"><svg viewBox="0 0 24 24"><path d="M10,15L15.19,12L10,9V15M21.56,7.17C21.67,7.64 21.7,8.11 21.7,8.58V15.42C21.7,15.89 21.67,16.36 21.56,16.83C21.31,17.73 20.73,18.31 19.83,18.56C19.36,18.67 18.9,18.7 18.42,18.7H5.58C5.1,18.7 4.64,18.67 4.17,18.56C3.27,18.31 2.69,17.73 2.44,16.83C2.33,16.36 2.3,15.89 2.3,15.42V8.58C2.3,8.11 2.33,7.64 2.44,7.17C2.69,6.27 3.27,5.69 4.17,5.44C4.64,5.33 5.1,5.3 5.58,5.3H18.42C18.9,5.3 19.36,5.33 19.83,5.44C20.73,5.69 21.31,6.27 21.56,7.17Z"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="#sobre">Sobre Nós</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#">Trabalhe Conosco</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Destinos</h4>
+                    <ul>
+                        <li><a href="#">Nacionais</a></li>
+                        <li><a href="#">Internacionais</a></li>
+                        <li><a href="#">Cruzeiros</a></li>
+                        <li><a href="#">Exóticos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Atendimento</h4>
+                    <div class="footer-info">
+                        <p>Rua Oscar Freire, 842 - Jardins, São Paulo - SP</p>
+                        <p>(11) 99999-9999 (WhatsApp)</p>
+                        <p>contato@viaremar.com.br</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="selos">
+                    <span class="selo-badge">IATA</span>
+                    <span class="selo-badge">ABAV</span>
+                    <span class="selo-badge">CADASTUR</span>
+                </div>
+                <p class="copyright">© 2025 ViareMar Viagens & Turismo. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dados dos destinos por época
+        const destinosData = {
+            verao: [
+                { nome: 'Fernando de Noronha', pais: 'Brasil', emoji: '🏝️', tags: ['Praia', 'Aventura'], pop: 95 },
+                { nome: 'Maldivas', pais: 'Ásia', emoji: '🌊', tags: ['Romântico', 'Praia'], pop: 98 },
+                { nome: 'Caribe (Cancún)', pais: 'México', emoji: '🍹', tags: ['Praia', 'Cultural'], pop: 90 },
+                { nome: 'Miami', pais: 'EUA', emoji: '🏙️', tags: ['Praia', 'Cultural'], pop: 85 },
+                { nome: 'Grécia (Santorini)', pais: 'Europa', emoji: '🇬🇷', tags: ['Romântico', 'Cultural'], pop: 92 },
+                { nome: 'Florianópolis', pais: 'Brasil', emoji: '🏄', tags: ['Praia', 'Aventura'], pop: 88 }
+            ],
+            outono: [
+                { nome: 'Portugal (Lisboa)', pais: 'Europa', emoji: '🇵🇹', tags: ['Cultural', 'Gastronomia'], pop: 89 },
+                { nome: 'Japão (Tóquio)', pais: 'Ásia', emoji: '🇯🇵', tags: ['Cultural', 'Aventura'], pop: 94 },
+                { nome: 'Argentina (B. Aires)', pais: 'América do Sul', emoji: '🇦🇷', tags: ['Cultural', 'Romântico'], pop: 82 },
+                { nome: 'Patagônia', pais: 'Chile/Arg', emoji: '🏔️', tags: ['Aventura', 'Neve'], pop: 87 },
+                { nome: 'Peru (Machu Picchu)', pais: 'América do Sul', emoji: '🇵🇪', tags: ['Aventura', 'Cultural'], pop: 91 },
+                { nome: 'Itália (Roma)', pais: 'Europa', emoji: '🇮🇹', tags: ['Cultural', 'Romântico'], pop: 96 }
+            ],
+            inverno: [
+                { nome: 'Gramado', pais: 'Brasil', emoji: '🍷', tags: ['Romântico', 'Gastronomia'], pop: 93 },
+                { nome: 'Bariloche', pais: 'Argentina', emoji: '⛷️', tags: ['Neve', 'Aventura'], pop: 89 },
+                { nome: 'Nova York', pais: 'EUA', emoji: '🗽', tags: ['Cultural', 'Aventura'], pop: 95 },
+                { nome: 'Canadá (Banff)', pais: 'América do Norte', emoji: '🇨🇦', tags: ['Neve', 'Aventura'], pop: 84 },
+                { nome: 'Suíça', pais: 'Europa', emoji: '🇨🇭', tags: ['Neve', 'Romântico'], pop: 90 },
+                { nome: 'Chile (Santiago)', pais: 'América do Sul', emoji: '🇨🇱', tags: ['Neve', 'Cultural'], pop: 81 }
+            ],
+            primavera: [
+                { nome: 'Paris', pais: 'França', emoji: '🗼', tags: ['Romântico', 'Cultural'], pop: 97 },
+                { nome: 'Amsterdã', pais: 'Holanda', emoji: '🌷', tags: ['Cultural', 'Aventura'], pop: 88 },
+                { nome: 'Marrocos', pais: 'África', emoji: '🇲🇦', tags: ['Cultural', 'Aventura'], pop: 83 },
+                { nome: 'Turquia (Istambul)', pais: 'Europa/Ásia', emoji: '🇹🇷', tags: ['Cultural', 'Aventura'], pop: 86 },
+                { nome: 'Barcelona', pais: 'Espanha', emoji: '🇪🇸', tags: ['Cultural', 'Praia'], pop: 92 },
+                { nome: 'Campos do Jordão', pais: 'Brasil', emoji: '🌲', tags: ['Romântico', 'Gastronomia'], pop: 85 }
+            ]
+        };
+
+        // Função para filtrar destinos
+        function filterDestinos(epoca, btn) {
+            const container = document.getElementById('destinos-container');
+            
+            // Atualizar botões
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            if(btn) btn.classList.add('active');
+
+            // Limpar container com animação
+            container.style.opacity = '0';
+            
+            setTimeout(() => {
+                container.innerHTML = '';
+                const destinos = destinosData[epoca];
+                
+                destinos.forEach(dest => {
+                    const card = document.createElement('div');
+                    card.className = 'destino-card';
+                    card.innerHTML = `
+                        <span class="destino-emoji">${dest.emoji}</span>
+                        <h3 class="destino-nome">${dest.nome}</h3>
+                        <p class="destino-pais">${dest.pais}</p>
+                        <div class="tags">
+                            ${dest.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                        <div class="pop-bar-container">
+                            <div class="pop-bar" style="width: ${dest.pop}%"></div>
+                        </div>
+                        <a href="#contato" class="btn-card">Ver Pacotes</a>
+                    `;
+                    container.appendChild(card);
+                });
+                
+                container.style.opacity = '1';
+            }, 300);
+        }
+
+        // Detectar mês atual e ativar aba correspondente
+        window.onload = () => {
+            const meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+            const mesAtualIdx = new Date().getMonth();
+            const mesAtualNome = meses[mesAtualIdx];
+            
+            document.getElementById('dynamic-subtitle').innerText = `Os mais buscados em ${mesAtualNome}`;
+            
+            let epocaPadrao = 'verao';
+            if (mesAtualIdx >= 3 && mesAtualIdx <= 4) epocaPadrao = 'outono';
+            else if (mesAtualIdx >= 5 && mesAtualIdx <= 7) epocaPadrao = 'inverno';
+            else if (mesAtualIdx >= 8 && mesAtualIdx <= 10) epocaPadrao = 'primavera';
+            
+            const btnPadrao = document.querySelectorAll('.tab-btn')[
+                epocaPadrao === 'verao' ? 0 : 
+                epocaPadrao === 'outono' ? 1 : 
+                epocaPadrao === 'inverno' ? 2 : 3
+            ];
+            
+            filterDestinos(epocaPadrao, btnPadrao);
+        };
+
+        // Menu Mobile Simples
+        document.querySelector('.mobile-menu-icon').onclick = () => {
+            const nav = document.querySelector('.nav-links');
+            if(nav.style.display === 'flex') {
+                nav.style.display = 'none';
+            } else {
+                nav.style.display = 'flex';
+                nav.style.flexDirection = 'column';
+                nav.style.position = 'absolute';
+                nav.style.top = '70px';
+                nav.style.left = '0';
+                nav.style.width = '100%';
+                nav.style.background = 'white';
+                nav.style.padding = '20px';
+                nav.style.boxShadow = '0 10px 10px rgba(0,0,0,0.1)';
+            }
+        };
+
+        // Validação básica do formulário
+        document.getElementById('contactForm').onsubmit = (e) => {
+            e.preventDefault();
+            alert('Solicitação enviada com sucesso! Nossa equipe entrará em contato em breve.');
+            e.target.reset();
+        };
+    </script>
+</body>
+</html>
